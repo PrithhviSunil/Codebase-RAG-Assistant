@@ -1,9 +1,4 @@
-"""
-Step 1: Walk a repo, parse Python files with tree-sitter,
-extract symbols (functions, classes, methods) with exact source locations.
 
-Each symbol becomes a retrievable unit later (chunk -> embed -> search).
-"""
 
 from __future__ import annotations
 from dataclasses import dataclass, field

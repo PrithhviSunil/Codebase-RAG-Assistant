@@ -8,6 +8,7 @@ env/
 chroma/
 .env
 
+requests/
 
 .DS_Store
 .vscode/
