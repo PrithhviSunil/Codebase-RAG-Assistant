@@ -5,7 +5,6 @@ A CLI tool that answers natural-language questions about a codebase by retrievin
 Ask something like *"how does retry logic work"* and get back ranked, real code locations, even when the answer doesn't contain the word "retry."
 
 ## Why
-
 Most "chat with your codebase" tools chunk source files into fixed-size blocks of text before embedding them. That splits functions in half and loses structure. This project instead parses source with **tree-sitter** and chunks by **symbol** — one function or class per chunk — so every retrieved result is a complete, meaningful unit with a precise location.
 
 ## How it works
