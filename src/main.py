@@ -32,7 +32,7 @@ def query(text: str, n: int = 5):
     for rank, h in enumerate(hits, 1):
         header = f"[bold green]{rank}. {h['name']}[/bold green]  [dim]({h['kind']})[/dim]  →  [yellow]{h['location']}[/yellow]"
         console.print(header)
-        # show first ~8 lines of the matched symbol as a preview
+        # show the matched symbol as a preview
         preview = "\n".join(h["source"].splitlines()[:8])
         console.print(Syntax(preview, "python", theme="ansi_dark", line_numbers=False))
         console.print()
