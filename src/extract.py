@@ -13,12 +13,12 @@ parser = Parser(PY_LANGUAGE)
 
 @dataclass
 class Symbol:
-    kind: str            # "function" | "class" | "method"
-    name: str            # qualified: "MyClass.my_method"
-    path: str            # repo-relative file path
-    start_line: int      # 1-indexed, inclusive
-    end_line: int        # 1-indexed, inclusive
-    source: str          # raw source text of the symbol (for embedding later)
+    kind: str            
+    name: str
+    path: str            
+    start_line: int      
+    end_line: int        
+    source: str         
 
     def location(self) -> str:
         return f"{self.path}:{self.start_line}"
@@ -44,7 +44,7 @@ def _walk(node: Node, src: bytes, path: str, symbols: list[Symbol], class_ctx: s
                 end_line=child.end_point[0] + 1,
                 source=src[child.start_byte:child.end_byte].decode("utf-8", "replace"),
             ))
-            # recurse into class body with class context so methods get qualified names
+            # recursion
             _walk(child, src, path, symbols, class_ctx=name)
 
         elif child.type == "function_definition":
@@ -58,7 +58,7 @@ def _walk(node: Node, src: bytes, path: str, symbols: list[Symbol], class_ctx: s
                 end_line=child.end_point[0] + 1,
                 source=src[child.start_byte:child.end_byte].decode("utf-8", "replace"),
             ))
-            # recurse to catch nested functions, but drop class context
+            # recursion
             _walk(child, src, path, symbols, class_ctx=None)
 
         else:
