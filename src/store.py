@@ -1,10 +1,8 @@
 from sentence_transformers import SentenceTransformer
 import chromadb
 
-# The "fingerprint machine" — loaded once. First run downloads ~90MB.
 _model = SentenceTransformer("all-MiniLM-L6-v2")
 
-# Chroma client that persists to disk in ./chroma
 _client = chromadb.PersistentClient(path="chroma")
 
 
