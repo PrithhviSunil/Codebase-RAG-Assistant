@@ -51,6 +51,7 @@ Once registered, an assistant with access to this tool can answer questions abou
 
 ## Project structure
 
+
 ```
 src/
   extract.py      # tree-sitter symbol extraction
