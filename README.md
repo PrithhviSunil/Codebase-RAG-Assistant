@@ -7,6 +7,7 @@ Ask something like *"how does retry logic work"* and get back ranked, real code 
 ## Why
 Most "chat with your codebase" tools chunk source files into fixed-size blocks of text before embedding them. That splits functions in half and loses structure. This project instead parses source with **tree-sitter** and chunks by **symbol** — one function or class per chunk — so every retrieved result is a complete, meaningful unit with a precise location.
 
+
 ## How it works
 
 1. **Extract** — walk a repo, parse each Python file with tree-sitter, and pull out every function, class, and method with its qualified name (e.g. `AuthManager.login`) and exact `file:line` range.
