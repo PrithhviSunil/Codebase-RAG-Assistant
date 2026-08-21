@@ -10,14 +10,15 @@ Most "chat with your codebase" tools chunk source files into fixed-size blocks o
 
 ## How it works
 
+
 1. **Extract** — walk a repo, parse each Python file with tree-sitter, and pull out every function, class, and method with its qualified name (e.g. `AuthManager.login`) and exact `file:line` range.
 2. **Embed** — turn each symbol's source into a vector using a local `sentence-transformers` model (`all-MiniLM-L6-v2`). Runs fully offline, no API keys.
 3. **Store** — persist symbols and their vectors in a local ChromaDB collection.
 4. **Search** — embed the user's question with the same model, and retrieve the nearest symbols by vector similarity, ranked with their source locations.
 5. **MCP server** — the same search is exposed as an MCP tool, so AI coding assistants like Claude Code can call it directly to ground their answers in real source locations.
 
-## Install
 
+## Install
 ```bash
 pip install tree-sitter tree-sitter-python sentence-transformers chromadb typer rich
 ```
