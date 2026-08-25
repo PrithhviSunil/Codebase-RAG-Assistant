@@ -41,6 +41,7 @@ python src/main.py query "how does the library retry failed requests"
 
 Each result shows the symbol's kind, qualified name, `file:line` location, and a source preview.
 
+
 ## MCP server
 
 Exposes the same retrieval as a tool (`search_code`) that MCP-compatible clients like Claude Code can call directly.
